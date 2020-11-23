@@ -2,7 +2,7 @@
 
 > Firstname Lastname. 
 
-Learn more about me in my [GitHub profile page](link_to_profile_page)
+Learn more about me in my [GitHub profile page](https://github.com/reiminer)
 
 
 The following is a sample of products created during the _"Data Visualization and Reproducible Research"_ course in Fall 2020.
