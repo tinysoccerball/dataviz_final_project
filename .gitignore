@@ -1,3 +1,10 @@
+# Ignore these files
+.Rhistory
+.Ruserdata
+.DS_Store
+.httr-oauth
+.Rproj.user
+
 # History files
 .Rhistory
 .Rapp.history
