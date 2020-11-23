@@ -27,7 +27,7 @@ In this project, I explored ... _[short description of your revised project goes
 **Sample data visualization:** 
 
 _[include your favorite visualization from this project here]_
-<img src="https://github.com/reisanar/dataviz_final-project/figures/raw/master/fl_higher_ed.png" width="80%" height="80%">
+<img src="https://github.com/reisanar/dataviz_final_project/blob/main/figures/fl_higher_ed.png" width="60%" height="60%">
 
 (you can also place your figures in the `figures/` folder and use the `![](path_to_picture)` option to add the pictures here)
 
