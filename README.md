@@ -10,36 +10,37 @@ The following is a sample of products created during the _"Data Visualization an
 
 ## Project 01
 
-In the `project_01/` folder you can find... _[add short description of your revised project here]_
+In the `project_01/` folder you can find an analysis of births from 2000 to 2014. I was able to show some interesting features of the distribution of births throughout the week.
 
 **Sample data visualization:** 
 
-_[include your favorite visualization from this project here]_
-<img src="https://github.com/reisanar/figs/raw/master/echarts.png" width="70%" height="70%">
+<img src="project-01/Glinton_project_01_files/figure-html/unnamed-chunk-6-1.png" width="70%" height="70%">
 
 
 ## Project 02
 
-In this project, I explored ... _[short description of your revised project goes here]_ Find the code and report in the `project_02/` folder.
+In this project, I explored a dataset of summer hit music. I was looking for things like recurring artists, and trends in song characteristics.
 
 **Sample data visualization:** 
 
-_[include your favorite visualization from this project here]_
-<img src="https://raw.githubusercontent.com/reisanar/dataviz_final_project/main/figures/fl_higher_ed.png" width="80%" height="80%">
+<img src="project-02/Glinton_project_02_files/figure-html/unnamed-chunk-7-1.png" width="80%" height="80%">
 
 (you can place your figures in the `figures/` folder and use the `![](path_to_picture)` option to add the pictures here)
 
 
 ## Project 03
 
-In this project, I explored ... _[short description of the data visualizations you for this part of the project produced goes here]_
+In this project, I explored a dataset weather recording from the TPA airport in 2022.
 
 **Sample data visualization:** 
 
-_[include your favorite visualization from this project here]_
-<img src="https://github.com/reisanar/figs/raw/master/concrete_density.png" width="80%" height="80%">
+<img src= "project-03\Glinton_project_03_files\figure-html\unnamed-chunk-9-1.png" width="80%" height="80%">
 
 
 ### Moving Forward
 
-_Please add here a short reflection on what you learned and what you plan to continue exploring in terms of data visualization, data storytelling, reproducible research, and/or related topics._
+I learned a great deal about dita visualization while working on these projects. I was able to break down the tools that I had at hand and fully understand the logic behind them. This allowed me to get the looks I wanted from my data in order to communicate to my audience in an engaging way.
+
+I learned about the philosophy behind data visualization. I grew to understand not just how my I want my visualization to look, but also how I can expect them to be percieved.
+
+In the future I plan to continue to work with these tools in order to keep growing my skills. Furthermore, I plan to leverage my skills wherever I can. The world will alwasy need more effective communication.

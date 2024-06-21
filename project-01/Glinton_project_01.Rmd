@@ -1,0 +1,148 @@
+---
+title: "Mini-Project 01"
+output: 
+  html_document:
+    keep_md: true
+    toc: true
+    toc_float: true
+---
+
+# Data Visualization Project 01
+
+```{r}
+library(ggplot2)
+library(dplyr)
+```
+
+
+```{r}
+df <- read.csv('../data/us_births_00_14.csv')
+df %>%
+  summary()
+```
+
+```{r}
+births_by_day_of_week <- df %>%
+  group_by(day_of_week) %>%
+  summarise(total_births = sum(births))
+```
+
+
+```{r}
+births_by_year_month <- df %>%
+  group_by(year, month) %>%
+  summarise(total_births = sum(births)) %>%
+  ungroup()
+```
+
+```{r}
+month_names <- c("January", "February", "March", "April", "May", "June", 
+                 "July", "August", "September", "October", "November", "December")
+
+ggplot(births_by_year_month, aes(x = factor(year), y = total_births, fill = factor(month))) +
+  geom_bar(stat = 'identity') +
+  scale_fill_manual(values = RColorBrewer::brewer.pal(12, "Set3"), labels = month_names, name = "Month") +
+  ggtitle('Total Births per Year by Month') +
+  xlab('Year') +
+  ylab('Number of Births') +
+  scale_y_continuous(labels = scales::comma) +  # Add comma separator for thousands
+  coord_flip() +  # Flip coordinates for horizontal bars
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 16, face = 'bold'),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 12),
+    legend.title = element_text(size = 14),
+    legend.text = element_text(size = 12),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank()
+  )
+```
+
+```{r}
+# Prepare data for heatmap
+heatmap_data <- df %>%
+  group_by(month, day_of_week) %>%
+  summarise(total_births = sum(births)) %>%
+  ungroup()
+
+ggplot(heatmap_data, aes(x = day_of_week, y = factor(month), fill = total_births)) +
+  geom_tile() +
+  scale_fill_gradient(low = "white", high = "blue") +
+  ggtitle('Heatmap of Births by Day of the Week and Month') +
+  xlab('Day of the Week') +
+  ylab('Month') +
+  theme_minimal()
+
+```
+
+```{r}
+births_by_day_of_week <- df %>%
+  group_by(day_of_week) %>%
+  summarise(total_births = sum(births)) %>%
+  ungroup()
+
+ggplot(births_by_day_of_week, aes(x = day_of_week, y = total_births)) +
+  geom_bar(stat = 'identity', fill = 'skyblue') +
+  geom_smooth(method = 'loess', se = FALSE, color = 'black', linetype = 'dashed') +
+  ggtitle('Total Births by Day of the Week') +
+  xlab('Day of the Week') +
+  ylab('Total Births') +
+  scale_y_continuous(labels = scales::comma) +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 16, face = 'bold'),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 12),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank()
+  )
+```
+
+```{r}
+births_by_day_of_week[order(births_by_day_of_week$total_births), ]
+```
+
+
+
+
+```{r}
+ggplot(df, aes(x = factor(month), y = births)) +
+  geom_boxplot(fill = 'lightblue', color = 'darkblue') +
+  ggtitle('Box Plot of Monthly Births') +
+  xlab('Month') +
+  ylab('Number of Births') +
+  theme_minimal() +
+  scale_y_continuous(labels = scales::comma) +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 16, face = 'bold'),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 12),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank()
+  )
+```
+
+```{r}
+average_births_per_day <- df %>%
+  group_by(date_of_month) %>%
+  summarise(average_births = mean(births))
+
+ggplot(average_births_per_day, aes(x = date_of_month, y = average_births)) +
+  geom_line(color = 'pink') +
+  geom_point(color = 'red', size = 2) +
+  geom_smooth(color = 'grey') +
+  ggtitle('Average Births per Day of the Month') +
+  xlab('Day of the Month') +
+  ylab('Average Number of Births') +
+  theme_minimal() +
+  theme(
+    plot.title = element_text(hjust = 0.5, size = 16, face = 'bold'),
+    axis.title = element_text(size = 14),
+    axis.text = element_text(size = 12)
+  )
+```
+```{r}
+average_births_per_day[order(average_births_per_day$average_births), ]
+```
+
